@@ -14,8 +14,8 @@ if !ENV["EXTERNAL_LIB"]
   $includes    = " -I#{HERE}/include"
   $libraries   = " -L#{HERE}/lib"
   $CFLAGS      = "#{$includes} #{$libraries} #{$CFLAGS}"
-  $LDFLAGS     = "#{$libraries} #{$LDFLAGS}"
-  $LIBPATH     = ["#{HERE}/lib"]
+  $LDFLAGS = "-L/Users/joellongtine/.rvm/src/ruby-1.9.2-p180 #{$libraries} #{$LDFLAGS}"
+  $LIBPATH = ["/Users/joellongtine/.rvm/src/ruby-1.9.2-p180", "#{HERE}/lib"]
   $DEFLIBPATH  = []
 
   Dir.chdir(HERE) do
