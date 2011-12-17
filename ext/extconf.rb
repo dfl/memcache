@@ -13,9 +13,11 @@ $CXXFLAGS = " -std=gnu++98"
 if !ENV["EXTERNAL_LIB"]
   $includes    = " -I#{HERE}/include"
   $libraries   = " -L#{HERE}/lib"
+  
   $CFLAGS      = "#{$includes} #{$libraries} #{$CFLAGS}"
-  $LDFLAGS = "-L/Users/joellongtine/.rvm/src/ruby-1.9.2-p180 #{$libraries} #{$LDFLAGS}"
-  $LIBPATH = ["/Users/joellongtine/.rvm/src/ruby-1.9.2-p180", "#{HERE}/lib"]
+  ruby_path = `which ruby`.sub("/bin/ruby\n",'').sub('rubies','src')
+  $LDFLAGS = "-L#{ruby_path} #{$libraries} #{$LDFLAGS}"
+  $LIBPATH = [ruby_path, "#{HERE}/lib"]
   $DEFLIBPATH  = []
 
   Dir.chdir(HERE) do
